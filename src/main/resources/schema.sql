@@ -1,0 +1,11 @@
+CREATE DATABASE IF NOT EXISTS spring;
+USE spring;
+
+CREATE TABLE IF NOT EXISTS ktp (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nomorKtp VARCHAR(255) UNIQUE NOT NULL,
+    namaLengkap VARCHAR(255) NOT NULL,
+    alamat VARCHAR(255) NOT NULL,
+    tanggalLahir DATE NOT NULL,
+    jenisKelamin VARCHAR(50) NOT NULL
+);
