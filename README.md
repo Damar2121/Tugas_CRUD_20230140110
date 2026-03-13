@@ -4,6 +4,9 @@ Aplikasi KTP Management ini dibangun menggunakan Spring Boot (Backend) dan HTML/
 
 ![Tampilan Halaman KTP](screenshot.webp)
 
+## Tampilan Web dengan Data
+![Tampilan Web dengan Data](screenshot_with_data.webp)
+
 ---
 
 ## Dokumentasi REST API
