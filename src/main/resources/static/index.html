@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KTP Management System | Project KTP</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fa-solid fa-address-card"></i>
+                <h1>KTP <span>Manager</span></h1>
+            </div>
+            <p>Sistem Manajemen Data Kependudukan Terintegrasi</p>
+        </header>
+
+        <main>
+            <section class="form-section card">
+                <h2 id="form-title"><i class="fa-solid fa-plus-circle"></i> Tambah Data KTP</h2>
+                <form id="ktp-form">
+                    <input type="hidden" id="ktp-id">
+                    
+                    <div class="input-group">
+                        <label for="nomorKtp">Nomor KTP (16 Digit)</label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-id-card"></i>
+                            <input type="text" id="nomorKtp" name="nomorKtp" placeholder="Masukkan 16 digit nomor KTP" required maxlength="16" pattern="[0-9]{16}">
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="namaLengkap">Nama Lengkap</label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-user"></i>
+                            <input type="text" id="namaLengkap" name="namaLengkap" placeholder="Masukkan nama lengkap" required>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="alamat">Alamat</label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <input type="text" id="alamat" name="alamat" placeholder="Masukkan alamat lengkap" required>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-group">
+                            <label for="tanggalLahir">Tanggal Lahir</label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-calendar-days"></i>
+                                <input type="date" id="tanggalLahir" name="tanggalLahir" required>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="jenisKelamin">Jenis Kelamin</label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-venus-mars"></i>
+                                <select id="jenisKelamin" name="jenisKelamin" required>
+                                    <option value="" disabled selected>Pilih Jenis Kelamin</option>
+                                    <option value="Laki-laki">Laki-laki</option>
+                                    <option value="Perempuan">Perempuan</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" id="submit-btn" class="btn btn-primary">
+                            <i class="fa-solid fa-save"></i> <span>Simpan Data</span>
+                        </button>
+                        <button type="button" id="cancel-btn" class="btn btn-secondary hidden">
+                            <i class="fa-solid fa-times"></i> <span>Batal</span>
+                        </button>
+                    </div>
+                </form>
+            </section>
+
+            <section class="table-section card">
+                <div class="table-header">
+                    <h2><i class="fa-solid fa-table-list"></i> Daftar Data KTP</h2>
+                    <div class="search-bar">
+                        <i class="fa-solid fa-search"></i>
+                        <input type="text" id="search-input" placeholder="Cari data...">
+                    </div>
+                </div>
+                <div class="table-container">
+                    <table id="ktp-table">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Nomor KTP</th>
+                                <th>Nama Lengkap</th>
+                                <th>Alamat</th>
+                                <th>Tgl Lahir</th>
+                                <th>Gender</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ktp-list">
+                            <!-- Data will be loaded here via AJAX -->
+                            <tr>
+                                <td colspan="7" class="loading">Memuat data...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Project KTP Manager. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="toast"></div>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+</body>
+</html>
